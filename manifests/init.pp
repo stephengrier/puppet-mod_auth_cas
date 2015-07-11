@@ -32,13 +32,13 @@
 #
 # == Class: mod_auth_cas
 class mod_auth_cas (
-  $loginurl = ylookup('mod_auth_cas::loginurl', 'https:://cas.example.com/cas/login'),
-  $validateurl = ylookup('mod_auth_cas::validateurl', 'https:://cas.example.com/cas/serviceValidate'),
+  $loginurl = ylookup('mod_auth_cas::loginurl', 'https://cas.example.com/cas/login'),
+  $validateurl = ylookup('mod_auth_cas::validateurl', 'https://cas.example.com/cas/serviceValidate'),
   $cachebase = ylookup('mod_auth_cas::cachebase', '/var/cache/httpd'),
   $certificatepath = ylookup('mod_auth_cas::certificatepath', '/etc/ssl/certs'),
   $version = ylookup('mod_auth_cas::version', undef),
   $validatesaml = ylookup('mod_auth_cas::validatesaml', undef),
-  $debug = ylookup('mod_auth_cas::debug', false),
+  $debug = ylookup('mod_auth_cas::debug', undef),
 ) {
   # The mod_auth_cas package name.
   $package = $::osfamily ? {
@@ -52,6 +52,13 @@ class mod_auth_cas (
     'RedHat' => '/etc/httpd/conf.d',
     'Debian' => '/etc/apache2/conf-enabled',
     default  => '/etc/httpd/conf.d',
+  }
+
+  # Install the mod_auth_cas package,
+  package { $package :
+    ensure  => installed,
+    require => Package['httpd'],
+    before  => Service['httpd'],
   }
 
   # The main mod_auth_cas config file.
