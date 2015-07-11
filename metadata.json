@@ -1,0 +1,14 @@
+{
+  "name": "puppet-mod_auth_cas",
+  "version": "0.1.0",
+  "author": "stephengrier",
+  "summary": "Puppet module to configure the mod_auth_cas Apache module.",
+  "license": "Apache 2.0",
+  "source": "https://github.com/stephengrier/puppet-mod_auth_cas",
+  "project_page": "https://github.com/stephengrier/puppet-mod_auth_cas",
+  "issues_url": "https://github.com/stephengrier/puppet-mod_auth_cas/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
+
