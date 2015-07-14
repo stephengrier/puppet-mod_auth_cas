@@ -79,7 +79,7 @@ class mod_auth_cas (
   file { [ $cachebase, "${cachebase}/mod_auth_cas"] :
     ensure => directory,
     owner  => 'root',
-    group  => 'apache',
+    group  => $::httpd_inttech_rhel::group,
     mode   => '0775',
   }
 }
