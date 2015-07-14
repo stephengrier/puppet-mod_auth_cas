@@ -11,10 +11,10 @@ LoadModule auth_cas_module modules/mod_auth_cas.so
 CASCookiePath <%= @cachebase %>/mod_auth_cas/
 CASLoginURL <%= @loginurl %>
 CASValidateURL <%= @validateurl %>
-<% if @validatesaml == 'true' -%>
-CASValidateSAML On
+<% if @validatesaml != '' -%>
+CASValidateSAML <%= @validatesaml %>
 <% end -%>
 CASCertificatePath <%= @certificatepath %>
-<% if @debug == 'true' -%>
-CASDebug On
+<% if @debug != '' -%>
+CASDebug <%= @debug %>
 <% end -%>

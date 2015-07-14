@@ -21,10 +21,14 @@
 #
 # [*validatesaml*]
 #   If enabled the CAS server response will be treated as a SAML
-#   response and parsed for attributes.
+#   response and parsed for attributes. Valid values are 'On' or
+#   'Off'. By default this is not set so will be whatever the 
+#   mod_auth_cas default is.
 #
 # [*debug*]
-#   Whether to enable debug logging to the Apache error_log.
+#   Whether to enable debug logging to the Apache error_log. Valid
+#   values are 'On' and 'Off'. By default this is not set so will
+#   be whatever the mod_auth_cas default is.
 #
 # === Authors
 #
